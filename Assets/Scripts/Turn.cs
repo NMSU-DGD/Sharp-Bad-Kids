@@ -9,21 +9,19 @@ public class Turn : MonoBehaviour {
     public int turn;
     public int actionPoint;
 
+    private GameObject Camera;
+
 	// Use this for initialization
 	void Start ()
     {
         turn = 0;
         actionPoint = 10;
         players = GameObject.FindGameObjectsWithTag("Player");
+        Camera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 	
 	// Update is called once per frame
 	void Update () {
-		// next turn?
-        if(actionPoint == 0)
-        {
-            nextTurn();
-        }
         GameObject.Find("Indicator").GetComponent<Transform>().position = players[turn].transform.position + new Vector3(0, 1.8f, 0);
     }
 
@@ -31,6 +29,7 @@ public class Turn : MonoBehaviour {
     {
         turn = (turn + 1) % 4;
         actionPoint = 10;
+        Camera.GetComponent<CameraController>().MoveTo(players[turn]);
     }
 
     public void Move(Tile dest)
