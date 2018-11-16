@@ -18,6 +18,7 @@ public class Turn : MonoBehaviour {
         actionPoint = 10;
         players = GameObject.FindGameObjectsWithTag("Player");
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
+        Camera.GetComponent<CameraController>().MoveTo(players[0]);
     }
 	
 	// Update is called once per frame
