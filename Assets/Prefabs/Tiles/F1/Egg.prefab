@@ -169,7 +169,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: -2
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1420200b59c99a641aa80d1ee0b8e86b, type: 3}
 --- !u!114 &114607534118549370
@@ -187,3 +187,5 @@ MonoBehaviour:
   turn: {fileID: 0}
   hasResource: 0
   occupied: 0
+  cooldown: 0
+  cooling: 0

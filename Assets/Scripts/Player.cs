@@ -7,7 +7,9 @@ public class Player : MonoBehaviour {
     public float speed;
     public Vector2 current;
     public Tile currTile;
-    public int[] resource = new int[4];
+    public int[] resource = new int[5];
+    public int coins;
+    public string name;
     
     private Vector3 destination;
     private GameObject Grid;
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour {
         anim = GetComponent<Animator>();
         destination = transform.position;
         Grid = GameObject.FindGameObjectWithTag("GameController");
+        coins = 0;
 	}
 	
 	// Update is called once per frame

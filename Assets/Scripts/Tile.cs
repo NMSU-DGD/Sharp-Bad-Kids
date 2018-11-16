@@ -10,12 +10,24 @@ public class Tile : MonoBehaviour, IPointerClickHandler {
     public GameObject turn;
     public bool hasResource;
     public bool occupied;
+    public int cooldown;
+    public int cooling;
 
     private void Start()
     {
         turn = GameObject.FindGameObjectWithTag("GameController");
         hasResource = true;
         occupied = false;
+        cooling = cooldown;
+    }
+
+    void Update()
+    {
+        if(cooling == 0) {
+            hasResource = true;
+            cooling = cooldown;
+            GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

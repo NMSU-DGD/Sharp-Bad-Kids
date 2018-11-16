@@ -3,12 +3,6 @@ using System.Collections;
 
 public class GridManager : MonoBehaviour
 {
-    //following public variable is used to store the hex model prefab;
-    //instantiate it by dragging the prefab on this variable using unity editor
-    public GameObject Chicken;
-    public GameObject Egg;
-    public GameObject Mushroom;
-    public GameObject Orange;
     //next two variables can also be instantiated using unity editor
     public int gridWidthInHexes = 10;
     public int gridHeightInHexes = 10;
@@ -18,7 +12,7 @@ public class GridManager : MonoBehaviour
     protected GameObject[] Characters =  new GameObject[4];
 
     //Hexagon array
-    private GameObject[] Hex = new GameObject[4];
+    public GameObject[] Hex = new GameObject[4];
 
     //Hexagon tile width and height in game world
     private float hexWidth;
@@ -93,21 +87,25 @@ public class GridManager : MonoBehaviour
             {
                 Characters[i].transform.position = calcWorldCoord(new Vector2(0, 0)) + new Vector3(0, 0.1f, 0);
                 Characters[i].GetComponent<Player>().current = new Vector2(0, 0);
+                Characters[i].GetComponent<Player>().name = "Player 1";
             }
             else if (i == 1)
             {
                 Characters[i].transform.position = calcWorldCoord(new Vector2(0, 9)) + new Vector3(0, 0.1f, 0);
                 Characters[i].GetComponent<Player>().current = new Vector2(0, 9);
+            	Characters[i].GetComponent<Player>().name = "Player 2";
             }
             else if (i == 2)
             {
                 Characters[i].transform.position = calcWorldCoord(new Vector2(9, 0)) + new Vector3(0, 0.1f, 0);
                 Characters[i].GetComponent<Player>().current = new Vector2(9, 0);
+            	Characters[i].GetComponent<Player>().name = "Player 3";
             }
             else
             {
                 Characters[i].transform.position = calcWorldCoord(new Vector2(9, 9)) + new Vector3(0, 0.1f, 0);
                 Characters[i].GetComponent<Player>().current = new Vector2(9, 9);
+            	Characters[i].GetComponent<Player>().name = "Player 4";
             }
         }
     }
@@ -115,11 +113,6 @@ public class GridManager : MonoBehaviour
     //The grid should be generated on game start
     void Awake()
     {
-        Hex[0] = Chicken;
-        Hex[1] = Orange;
-        Hex[2] = Mushroom;
-        Hex[3] = Egg;
-
         setSizes();
         createGrid();
         createCharacters();

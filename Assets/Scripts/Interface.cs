@@ -25,12 +25,13 @@ public class Interface : MonoBehaviour {
         Turn.text = "Turn : " + (GameContoller.GetComponent<Turn>().turn+1);
 
         GameObject[] players = GameContoller.GetComponent<Turn>().players;
-        for (int i = 0; i < Inventory.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
             int[] resource = players[i].GetComponent<Player>().resource;
             Inventory[i].GetComponentInChildren<Text>().text = "Player " + (i+1) + 
-                "\nChicken : " + resource[0] + "\nEgg : " + resource[1] + "\nMushroom : " +
-                resource[2] + "\nOrange : " + resource[3];
+                "\nCoolant : " + resource[0] + "\nPower : " + resource[1] + "\nGraphics : " +
+                resource[2] + "\nMonitoring : " + resource[3] + "\nSystems : " + resource[4] +
+                "\nCoins : " + players[i].GetComponent<Player>().coins;
         }
 	}
 }

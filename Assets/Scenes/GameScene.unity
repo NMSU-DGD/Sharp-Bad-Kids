@@ -803,8 +803,8 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
-  - component: {fileID: 534669906}
   - component: {fileID: 534669907}
+  - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1158,7 +1158,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 10, y: 10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 140}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1201560789
 MonoBehaviour:
@@ -1415,7 +1415,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -10, y: 10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 140}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1391261178
 MonoBehaviour:
@@ -1698,13 +1698,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7d3b1513adb654cbf1b8aea08346aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chicken: {fileID: 1310645606849500, guid: 1b5773b3db99a704cb934c25d012f1bc, type: 2}
-  Egg: {fileID: 1588296972726554, guid: f7a8920bcd08154438db7c508d06334b, type: 2}
-  Mushroom: {fileID: 1322794190553816, guid: 568b2dad750a58747b6de6df68868caf, type: 2}
-  Orange: {fileID: 1228118754473502, guid: 4e2c776336cf63247921927738c59d33, type: 2}
   gridWidthInHexes: 10
   gridHeightInHexes: 10
   Character: {fileID: 1067503991681580, guid: 64d444672c854794683605370e750f5d, type: 2}
+  Hex:
+  - {fileID: 1534289380441002, guid: ad3826c64a3c07f42a0676d1cf485754, type: 2}
+  - {fileID: 1189409820328862, guid: d2ba5a63beb79a949ab5a43fca222ca1, type: 2}
+  - {fileID: 1471653749414988, guid: 8608055ff6a66544c9e602404c8c75fb, type: 2}
+  - {fileID: 1511471408578568, guid: 7bd021f4adcbae448930f0ad55707488, type: 2}
 --- !u!4 &1690366685
 Transform:
   m_ObjectHideFlags: 0
@@ -2237,7 +2238,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 140}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1968654063
 MonoBehaviour:
@@ -2307,7 +2308,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 140}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2064739847
 MonoBehaviour:

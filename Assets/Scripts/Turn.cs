@@ -28,7 +28,35 @@ public class Turn : MonoBehaviour {
     public void nextTurn()
     {
         turn = (turn + 1) % 4;
+
+        // each round calculate Revenue & cooldown
+        if(turn == 0) {
+            // Check Cooldowns
+            GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
+            foreach (GameObject tile in tiles)
+            {
+                Tile a = tile.GetComponent<Tile>();
+
+                if(!a.hasResource && a.cooling > 0) {
+                    a.cooling--;
+                }
+            }
+
+            // Update Revenue
+            foreach(GameObject player in players)
+            {
+                Player p = player.GetComponent<Player>();
+
+                p.coins += p.resource[4] * 10;
+
+                if(p.coins >= 100) {
+                    gameover(p);
+                }
+            }
+        }
+
         actionPoint = 10;
+        Debug.Log(turn);
         Camera.GetComponent<CameraController>().MoveTo(players[turn]);
     }
 
@@ -52,27 +80,27 @@ public class Turn : MonoBehaviour {
         {
             switch (p.currTile.name)
             {
-                case "Chicken(Clone)":
+                case "Cooling(Clone)":
                     p.currTile.hasResource = false;
-                    Destroy(p.currTile.transform.GetChild(0).gameObject);
+                    p.currTile.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
                     p.resource[0]++;
                     break;
 
-                case "Egg(Clone)":
+                case "Power(Clone)":
                     p.currTile.hasResource = false;
-                    Destroy(p.currTile.transform.GetChild(0).gameObject);
+                    p.currTile.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
                     p.resource[1]++;
                     break;
 
-                case "Mushroom(Clone)":
+                case "Graphics(Clone)":
                     p.currTile.hasResource = false;
-                    Destroy(p.currTile.transform.GetChild(0).gameObject);
+                    p.currTile.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
                     p.resource[2]++;
                     break;
 
-                case "Orange(Clone)":
+                case "Monitor(Clone)":
                     p.currTile.hasResource = false;
-                    Destroy(p.currTile.transform.GetChild(0).gameObject);
+                    p.currTile.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
                     p.resource[3]++;
                     break;
             }
@@ -91,15 +119,22 @@ public class Turn : MonoBehaviour {
             // 1 for each for Demo...
             if(resource[0] > 0 && resource[1] > 0 && resource[2] > 0 && resource[3] > 0)
             {
-                gameover();
+                for(int i = 0; i < 4; i++)
+                {
+                    resource[i]--;
+                }
+
+                resource[4]++;
+
+                actionPoint -= 6;
             }
         }
     }
 
-    public void gameover()
+    public void gameover(Player p)
     {
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
-        GameObject.Find("winner").GetComponent<Text>().text = "Player " + (turn+1) + " is the winner!";
+        GameObject.Find("winner").GetComponent<Text>().text = p.name + " is the winner!";
     }
 
     int GetTileDistance(int aX1, int aY1, int aX2, int aY2)

@@ -2113,7 +2113,9 @@ MonoBehaviour:
   speed: 5
   current: {x: 0, y: 0}
   currTile: {fileID: 0}
-  resource: 00000000000000000000000000000000
+  resource: 0000000000000000000000000000000000000000
+  coins: 0
+  name: 
 --- !u!114 &114270613650701650
 MonoBehaviour:
   m_ObjectHideFlags: 1
